@@ -1,0 +1,132 @@
+﻿<metro:MetroWindow x:Class="Fibonacci.Views.RegistModuleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Fibonacci"
+        WindowTitleBrush="BlueViolet"
+        xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+        xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:dialogs="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        dialogs:DialogParticipation.Register="{Binding}"
+        GlowBrush="Black"
+        BorderThickness="0"
+        AllowDrop="True"
+        Drop="Window_Drop" PreviewDragOver="Window_PreviewDragOver"
+                   Loaded="MetroWindow_Loaded">
+    <Grid Margin="10,10,10,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <!--HeaderButton-->
+        <StackPanel Grid.Row="0" Grid.Column="0"  Panel.ZIndex="4" Name="pnlHeaderAdd" Orientation="Horizontal" HorizontalAlignment="Left">
+            <Button Content="Select" Name="btnAdd" Click="btnAdd_Click" Margin="5,0,5,0" Style="{StaticResource MaterialDesignFloatingActionLightButton}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="4" Panel.ZIndex="4" Name="pnlHeaderRegist" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button  Content="Regist" Name="btnRegist" Click="btnRegist_Click" Margin="5,0,5,0" IsEnabled="False" Style="{StaticResource MaterialDesignFloatingActionLightButton}"/>
+        </StackPanel>
+        <!--↓↓Column0↓↓-->
+        <StackPanel Grid.Row="1" Grid.Column="0" Panel.ZIndex="4" Name="pnlModuleBasicInformation" Margin="5">
+            <Label Content="DisplayName" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom"/>
+            <TextBox materialDesign:HintAssist.Hint="Fibonacci" HorizontalAlignment="Stretch" Margin="0,0,0,0" TextWrapping="Wrap"/>
+            <Label Content="AssemblyName" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom"/>
+            <TextBox materialDesign:HintAssist.Hint="Fibonacci.Core" HorizontalAlignment="Stretch" Margin="0,0,0,0" TextWrapping="Wrap"/>
+            <Label Content="NameSpace" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom"/>
+            <TextBox  materialDesign:HintAssist.Hint="Fibonacci.Core" HorizontalAlignment="Stretch" Margin="0,0,0,0" TextWrapping="Wrap"/>
+            <Label  Content="Description" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom"/>
+            <TextBox
+                 materialDesign:HintAssist.Hint="モジュールの用途を書いてください。"
+                 TextWrapping="WrapWithOverflow"
+                 AcceptsReturn="True"
+                 VerticalAlignment="Stretch"
+                 VerticalScrollBarVisibility="Auto"
+                 SpellCheck.IsEnabled="True"/>
+        </StackPanel>
+        <!--↑↑Column0↑↑-->
+        <!--↓↓Column1-2↓↓-->
+        <GroupBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Header="Select Regist Classes" Margin="5">
+            <ListBox Name="lstbxClasses" SelectionMode="Multiple" Style="{StaticResource MaterialDesignListBox}" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,0,0,0" x:Name="grd">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Viewbox  Grid.Row="0" Grid.Column="0">
+                                <CheckBox IsChecked="{Binding Path=IsUse}" Content="{Binding Path=ClassTypeInfo.ClassName}" />
+                            </Viewbox>
+                            <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="WrapWithOverflow" Style="{DynamicResource MaterialDesignTitleTextBlock}" FontSize="12" Text="{Binding Path=NameSpace}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </GroupBox>
+        <!--↑↑Column1-2↑↑-->
+        <!--↓↓Column3-4↓↓-->
+        <GroupBox Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Header="Select Regist Methods" Margin="5">
+            <ListBox Name="lstbxMethods" SelectionMode="Multiple" Style="{StaticResource MaterialDesignListBox}" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,0,0,0" x:Name="grd">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Viewbox  Grid.Row="0" Grid.Column="0">
+                                <CheckBox IsChecked="{Binding Path=IsUse}" Content="{Binding Path=ClassTypeInfo.FullName}" />
+                            </Viewbox>
+                            <TextBlock Name="txbDescription" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="WrapWithOverflow" Style="{DynamicResource MaterialDesignTitleTextBlock}" FontSize="18" Text="{Binding Path=Description}"/>
+                            <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="WrapWithOverflow" Style="{DynamicResource MaterialDesignTitleTextBlock}" FontSize="14" Text="{Binding Path=AssemblyName}"/>
+                            <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="WrapWithOverflow" Style="{DynamicResource MaterialDesignTitleTextBlock}" FontSize="12">CreateUser:4629 Update:2018/2/7 11:00 Create:2018/2/7 11:00aaaa</TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </GroupBox>
+        <!--↑↑Column3-4↑↑-->
+        <!--↓↓Column2↓↓-->
+        <!--<StackPanel Grid.Row="1" Grid.RowSpan="3" Grid.Column="2" Panel.ZIndex="4" Name="pnlArguments">
+            <Label Content="Arguments" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom"/>
+            <DataGrid HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="2" Panel.ZIndex="4" Name="pnlReturnValueType">
+            <Label Content="ReturnValueType" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom"/>
+            <TextBox materialDesign:HintAssist.Hint="bool"  HorizontalAlignment="Stretch" Margin="0,0,0,0" TextWrapping="Wrap"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.RowSpan="3" Grid.Column="2" Panel.ZIndex="4" Name="pnlReferenceModules">
+            <Label Content="ReferenceModules" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom"/>
+            <DataGrid HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+            </DataGrid>
+        </StackPanel>-->
+        <!--<metro:MetroProgressBar IsIndeterminate="True" Visibility="{Binding RegistProgressBar,Converter={StaticResource BooleanToVisibility_ValueConverter}}" Grid.ColumnSpan="5" Grid.Row="6" Height="30" />-->
+        <!--↑↑Column1↑↑-->
+    </Grid>
+</metro:MetroWindow>

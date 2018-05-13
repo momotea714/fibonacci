@@ -1,0 +1,15 @@
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\bin\Debug\FibonacciCore.dll.config
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\bin\Debug\FibonacciCore.dll
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\bin\Debug\FibonacciCore.pdb
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\bin\Debug\Dapper.dll
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\bin\Debug\EntityFramework.dll
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\bin\Debug\Dapper.xml
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\bin\Debug\EntityFramework.xml
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\obj\Debug\Fibonacci.Core.Migrations.FirstCreate.resources
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\obj\Debug\Fibonacci.Core.csproj.GenerateResource.Cache
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\obj\Debug\Fibonacci.Core.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\obj\Debug\FibonacciCore.dll
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\obj\Debug\FibonacciCore.pdb
+C:\Users\USER\Desktop\anything\NoGitProject\Fibonacci\FibonacciCore\obj\Debug\Fibonacci.Core.csprojResolveAssemblyReference.cache
